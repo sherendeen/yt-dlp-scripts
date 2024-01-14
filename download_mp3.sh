@@ -13,4 +13,5 @@ echo "Input URL:"; read video
 bin/yt-dlp -x --audio-format $format $video
 
 echo "Moving $format files"
+# this removes all files that end in .mp3 to the Music directory of the user account
 find . -name '*.mp3' -print -exec mv '{}' ~/Music \;
