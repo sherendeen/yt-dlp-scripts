@@ -7,13 +7,10 @@ if [ $check_for_updates -eq 1 ]; then
 else
 	echo "Update check skipped."
 fi
-echo "Input URL:"; read video
 
-#get playlist name if possible
-playlist_title= bin/yt-dlp $video -I 1:1 --skip-download --print playlist_title
+#get URL as user input
+echo "Input URL:"; 
+read video 
 
-#download basic mp4 video
-bin/yt-dlp -f mp4 $video
-echo $playlist_title
-#mkdir ~/Music/$playlist_title
-
+#download whatever is at the URL and convert it to .mp4 if not already
+bin/yt-dlp -f mp4 $video 
